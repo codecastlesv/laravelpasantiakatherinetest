@@ -47,7 +47,7 @@ class ProyectoController extends Controller
         $fechaHoy = $date->format('Y-m-d');
 
         if ($request->fecha_inicio < $fechaHoy) {
-            notify()->error('la fecha debe ser mayor a hoy.', 'Operación fallida');
+            notify()->error('El proyecto debe iniciar hoy o en el futuro.', 'Operación fallida');
             return redirect()->back()->withInput();
         }
 
@@ -93,10 +93,11 @@ class ProyectoController extends Controller
                 $proyecto->update($request->all());
                 return response()->json(['code' => 200, 'message' => 'Proyecto actualizado exitosamente.']);
             } else {
-                return response()->json(['code' => 404, 'message' => 'La fecha debe ser igual o mayor a hoy.']);
+                return response()->json(['code' => 404, 'message' => 'El proyecto debe iniciar hoy o en el futuro.']);
             }
         }
 
+        // Validar que si los campos son diferentes, pues no se actualiza el registro
         if ($proyecto->nombre === $request->nombre && $proyecto->descripcion === $request->descripcion && $proyecto->fecha_inicio === $request->fecha_inicio) {
             return response()->json(['code' => 404, 'message' => 'No se han realizado cambios en el proyecto.']);
         }
@@ -151,7 +152,7 @@ class ProyectoController extends Controller
             [
                 'nombre.required' => 'El nombre del proyecto es obligatorio.',
                 'descripcion.required' => 'La descripción es obligatoria.',
-                'fecha_inicio.required' => 'La fecha es obligatoria.',
+                'fecha_inicio.required' => 'La fecha de inicio es obligatoria.',
             ],
         );
     }

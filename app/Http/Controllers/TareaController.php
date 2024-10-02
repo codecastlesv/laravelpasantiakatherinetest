@@ -56,14 +56,17 @@ class TareaController extends Controller
                 return response()->json(['code' => 404, 'message' => 'No se han realizado cambios en la tarea.']);
             }
 
+            // Validar que si la tarea esta completada y los otros campos son diferentes, no se puede actualizar
             if ($tarea->nombre !== $request->nombre && $tarea->descripcion !== $request->descripcion) {
                 return response()->json(['code' => 404, 'message' => 'El nombre y la descripción son diferentes.']);
             }
-
+            
+            // Validar que si la tarea está completada y el nombre es diferente, no se puede actualizar
             if ($tarea->nombre !== $request->nombre) {
                 return response()->json(['code' => 404, 'message' => 'El nombre de la tarea es diferente.']);
             }
 
+            // Validar que si la tarea está completada y la descripción es diferente no se puede actualizar
             if ($tarea->descripcion !== $request->descripcion) {
                 return response()->json(['code' => 404, 'message' => 'La descripción de la tarea es diferente.']);
             }
@@ -72,6 +75,7 @@ class TareaController extends Controller
             return response()->json(['code' => 200, 'message' => 'Estado de la tarea actualizado.']);
         }
 
+        // Si todos los campos son iguales, no ha sufrido cambios la tareas
         if ($tarea->nombre === $request->nombre && $tarea->descripcion === $request->descripcion && $tarea->estado === EstadoTarea::from($request->estado)) {
             return response()->json(['code' => 404, 'message' => 'No se han realizado cambios en la tarea.']);
         }
