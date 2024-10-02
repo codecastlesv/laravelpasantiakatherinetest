@@ -21,7 +21,7 @@ Antes de comenzar, asegúrese de tener instalado lo siguiente en su sistema:
 
    Abra una terminal y ejecute el siguiente comando para clonar el repositorio:
 
-   ```git clone https://github.com/tu-usuario/nombre-del-repositorio.git```
+   ```git clone https://github.com/codecastlesv/laravelpasantiakatherinetest.git```
 
    Ingrese al directorio del proyecto creado.
    
