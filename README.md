@@ -101,7 +101,7 @@ Se utilizaron paquetes de laravel como:
 
 ## Consideraciones extras
 Al utilizar Xampp se tiene acceso a la base de datos y php. 
-Está versión trabaja con PHP 8.2.4, y en la base de datos con [MySQL]() versión ^5.6.17 ó MariaDB versión ^10.4.28.
+Está versión trabaja con PHP 8.2.4, y en la base de datos con [MySQL](https://www.mysql.com) versión ^5.6.17 ó MariaDB versión ^10.4.28.
 
 PHP exige que algunas extensiones estén habilitadas. Este proyecto se realizó con las siguientes extensiones habilitadas por defecto:
 - ext-dom
